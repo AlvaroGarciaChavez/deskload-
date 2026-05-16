@@ -157,7 +157,8 @@ app.post('/extract', async (req, res) => {
   } catch (err) {
     console.error('[extract] Error:', err.message);
 
-    let message = 'No se pudo obtener información del enlace';
+    // Send the actual error message back to the app instead of hiding it
+    let message = err.message || 'No se pudo obtener información del enlace';
 
     if (err.message?.includes('Unsupported URL')) {
       message = 'Este sitio web no está soportado. Solo puedes pegar URLs directas de archivos.';

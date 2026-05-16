@@ -4,8 +4,8 @@ import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 import { useDownloadStore, DownloadItem, ContentType } from '../store/downloadStore';
 
-// Backend URL — replace with your deployed Railway/Render URL
-const BACKEND_URL = 'https://deskload-test.loca.lt';
+// Backend URL — apuntando al servidor en la nube
+const BACKEND_URL = 'https://deskload.onrender.com';
 
 // Directory inside app's document directory
 const DOWNLOADS_DIR = FileSystem.documentDirectory + 'DeskLoad/';

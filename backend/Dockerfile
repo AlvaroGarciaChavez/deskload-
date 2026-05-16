@@ -1,7 +1,7 @@
-FROM node:20-alpine
+FROM node:20-bookworm-slim
 
-# Instalar Python y FFmpeg (requerimientos críticos para yt-dlp)
-RUN apk add --no-cache python3 ffmpeg
+# Instalar Python y FFmpeg (requerimientos críticos para yt-dlp en Debian)
+RUN apt-get update && apt-get install -y python3 ffmpeg curl && rm -rf /var/lib/apt/lists/*
 
 # Crear y movernos a la carpeta de la app
 WORKDIR /app
