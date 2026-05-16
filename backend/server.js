@@ -29,6 +29,11 @@ async function ensureYtDlp() {
     await YTDlpWrap.downloadFromGithub(YT_DLP_PATH);
     console.log('✅ yt-dlp downloaded');
   }
+
+  // Ensure executable permissions on Linux/macOS
+  if (process.platform !== 'win32' && fs.existsSync(YT_DLP_PATH)) {
+    fs.chmodSync(YT_DLP_PATH, 0o755);
+  }
 }
 
 const ytDlp = new YTDlpWrap(
